@@ -1,0 +1,21 @@
+.left, .mid, .right {
+  display: flex;
+  align-items: center;
+}
+
+.left  { width: 20%; }
+.mid   { width: 60%; flex-direction: column; justify-content: center; }
+.right { width: 20%; justify-content: flex-end; }
+
+.logoutbtn {
+  background: #c0392b !important;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform .25s;
+}
+.logoutbtn:hover { transform: scale(1.05); background: #a93226 !important; }

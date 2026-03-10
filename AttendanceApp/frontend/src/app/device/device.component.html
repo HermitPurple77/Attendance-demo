@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>IP Address Monitor</h1>
+
+  <!-- Colour legend -->
+  <div class="legend">
+    <span><span class="legend-item" style="background-color: green;"></span>Online</span>
+    <span><span class="legend-item" style="background-color: red;"></span>Offline</span>
+    <span><span class="legend-item" style="background-color: orange;"></span>Error</span>
+  </div>
+
+  <!-- Loading state -->
+  <p *ngIf="ipAddresses.length === 0" style="text-align:center; color:#888; margin-top:2rem;">
+    Loading devices...
+  </p>
+
+  <!-- IP address list -->
+  <div class="ip-list">
+    <div class="ip-item" *ngFor="let ip of ipAddresses">
+
+      <div class="ip-address">
+        <!-- Coloured dot -->
+        <span class="status-indicator"
+              [ngStyle]="{ 'background-color': getStatusColor(ip.status) }">
+        </span>
+
+        <!-- IP address text -->
+        <span class="addr-text">{{ ip.address }}</span>
+
+        <!-- Status label -->
+        <span class="status-text">{{ getStatusText(ip.status) }}</span>
+
+        <!-- Response time — only shown when UP -->
+        <span class="response-time" *ngIf="ip.responseTime && ip.status === 'UP'">
+          {{ ip.responseTime }}ms
+        </span>
+
+        <!-- Last checked timestamp -->
+        <span class="last-checked" *ngIf="ip.lastChecked">
+          Last checked: {{ ip.lastChecked | date:'short' }}
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Refresh indicator -->
+  <p style="text-align:center; color:#aaa; font-size:0.8rem; margin-top:8px;">
+    Auto-refreshes every 10 seconds
+  </p>
+</div>

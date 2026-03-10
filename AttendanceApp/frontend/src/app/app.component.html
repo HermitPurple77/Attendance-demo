@@ -1,0 +1,23 @@
+<!-- Fixed header bar -->
+<app-header></app-header>
+
+<!-- Left sidebar with dropdown menu -->
+<div class="sidebar">
+  <h6>MENU</h6>
+
+  <div class="dropdown">
+    <input type="checkbox" id="menu-forms" />
+    <label for="menu-forms">Forms</label>
+    <div class="dropdown-content" (click)="navigateto()">
+      device status
+    </div>
+  </div>
+</div>
+
+<!-- Main content — Angular router loads components here -->
+<div id="content">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Fixed footer -->
+<footer>@2026 Defence Research &amp; Development Organization</footer>

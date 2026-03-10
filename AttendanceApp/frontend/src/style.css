@@ -1,0 +1,194 @@
+/* ── Reset ─────────────────────────────────────────── */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+/* ── Fixed Header ──────────────────────────────────── */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 140px;
+  background: #353b8b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 120px;
+  border: 3px solid #6c94be;
+  object-fit: cover;
+}
+
+header h3 { margin: 0; font-size: 18px; }
+header span { font-size: 16px; opacity: .9; }
+
+header button {
+  padding: 10px 20px;
+  background: #6c94be;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  transition: transform .25s;
+  font-size: large;
+}
+header button:hover { transform: scale(1.05); }
+
+/* ── Sidebar ───────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  top: 140px; left: 0;
+  width: 200px;
+  height: calc(100vh - 200px);
+  background: #cad3ec;
+  color: #ffffff;
+  z-index: 9;
+  padding-top: 10px;
+  font-size: x-large;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.sidebar h6 {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── CSS-only Dropdown ────────────────────────────── */
+.dropdown { position: relative; }
+.dropdown input[type="checkbox"] { display: none; }
+
+.dropdown label {
+  display: block;
+  background: #34495e;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  user-select: none;
+  font-size: large;
+  color: #fff;
+}
+.dropdown label:hover { background: #1e293b; }
+
+.dropdown label::after {
+  content: "▼";
+  float: right;
+  font-size: 12px;
+  margin-right: 6px;
+  transition: transform .25s;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #3c5a9c;
+  border-radius: 0 0 4px 4px;
+  cursor: pointer;
+  transition: max-height 0.25s ease-in;
+}
+
+.dropdown input:checked ~ .dropdown-content {
+  max-height: 500px;
+}
+
+.dropdown-content div {
+  display: block;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: medium;
+}
+.dropdown-content div:hover,
+.dropdown-content:hover { background-color: #3f588a; }
+
+/* ── Main Content Area ─────────────────────────────── */
+#content {
+  position: fixed;
+  top: 140px;
+  left: 200px;   /* sidebar width */
+  right: 0;
+  bottom: 60px;  /* footer height */
+  padding: 30px;
+  background: #ffffff;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* ── Nav Button Group ──────────────────────────────── */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.btn-group .btn {
+  flex: 0 0 auto;
+  padding: .5rem 1rem;
+  border: 1px solid #1664b3;
+  background: #5078a0;
+  color: #fff;
+  border-radius: .25rem;
+  cursor: pointer;
+}
+.btn-group .btn:hover { background: #0052a3; }
+
+/* ── Hero Section ──────────────────────────────────── */
+.hero-section {
+  background: linear-gradient(135deg, #547b94, #8e44ad);
+  color: white;
+  text-align: center;
+  padding: 5rem 0;
+  margin-bottom: 3rem;
+  display: none; /* hidden by default, shown on home */
+}
+
+.cta-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* ── Fixed Footer ──────────────────────────────────── */
+footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  width: 100%;
+  height: 60px;
+  background: #194485;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-size: 14px;
+}
